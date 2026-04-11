@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "template": {
+      "title": "Analysis Template",
+      "description": "A saved configuration for analysis parameters and input structures.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the template" },
+        "description": { "type": "string", "description": "Brief description of the template" },
+        "inputStructure": { "type": "string", "description": "The predefined input text structure" },
+        "safetyLevel": { "type": "number", "description": "The analysis depth/safety level (0-100)" },
+        "accentColor": { "type": "string", "description": "The UI accent color associated with this template" },
+        "userId": { "type": "string", "description": "The UID of the owner" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["name", "inputStructure", "safetyLevel", "userId"]
+    }
+  },
+  "firestore": {
+    "/templates/{templateId}": {
+      "schema": "template",
+      "description": "Collection of user-defined analysis templates"
+    }
+  }
+}
